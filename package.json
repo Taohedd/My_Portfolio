@@ -1,0 +1,26 @@
+{
+  "name": "taoheed-portfolio",
+  "version": "1.0.0",
+  "description": "A dark-mode futuristic portfolio website for UI/UX Designer Taoheed",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "lucide-react": "^0.344.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "typescript": "^5.4.3",
+    "vite": "^5.2.0",
+    "tailwindcss": "^4.0.0",
+    "@tailwindcss/vite": "^4.0.0"
+  }
+}
