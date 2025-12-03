@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Navigation } from './components/Navigation';
 import { Footer } from './components/Footer';
-import Home from "./pages/Home";
+import { Home } from './pages/Home';
 import { Projects } from './pages/Projects';
 import { CaseStudy } from './pages/CaseStudy';
-import About  from './pages/About';
-import Contact from './pages/Contact';
+import { About } from './pages/About';
+import { Contact } from './pages/Contact';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState('home');
