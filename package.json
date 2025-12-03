@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A dark-mode futuristic portfolio website for UI/UX Designer Taoheed",
   "type": "module",
+  "private": true,
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -17,10 +18,10 @@
   "devDependencies": {
     "@types/react": "^18.3.1",
     "@types/react-dom": "^18.3.0",
-    "@vitejs/plugin-react": "^4.2.1",
-    "typescript": "^5.4.3",
-    "vite": "^5.2.0",
-    "tailwindcss": "^4.0.0",
-    "@tailwindcss/vite": "^4.0.0"
+    "@vitejs/plugin-react": "^4.3.1",
+    "@tailwindcss/vite": "^4.0.0",
+    "typescript": "^5.5.4",
+    "vite": "^5.4.8",
+    "tailwindcss": "^4.0.0"
   }
 }
