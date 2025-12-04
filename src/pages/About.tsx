@@ -79,7 +79,7 @@ export function About({ onNavigate }: AboutProps) {
             </h1>
             <div className="glass-strong rounded-2xl p-8 mb-6">
               <p className="text-gray-300 leading-relaxed mb-4">
-                Hi, I'm <span className="text-[#00A8FF]">Rahamon Taoheed Ayomide</span> — a passionate UI/UX Designer with over 4 years of experience crafting beautiful, intuitive, and functional digital products. I believe great design is where aesthetics meets purpose.
+                Hi, I'm <span className="text-[#00A8FF]">Rahamon Taoheed Ayomide</span> a passionate UI/UX Designer with over 4 years of experience crafting beautiful, intuitive, and functional digital products. I believe great design is where aesthetics meets purpose.
               </p>
               <p className="text-gray-300 leading-relaxed mb-4">
                 My approach combines user research, creative problem-solving, and cutting-edge design techniques to create experiences that not only look stunning but also deliver real value to users and businesses.

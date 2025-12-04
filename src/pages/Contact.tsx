@@ -28,14 +28,14 @@ export function Contact() {
     {
       icon: Mail,
       label: 'Email',
-      value: 'hello@taoheed.design',
-      href: 'mailto:hello@taoheed.design',
+      value: 'taoheedrahamon4@gmail.com',
+      href: 'mailto:taoheedrahamon4@gmail.com',
     },
     {
       icon: Phone,
       label: 'Phone',
-      value: '+1 (555) 123-4567',
-      href: 'tel:+15551234567',
+      value: '+234 815270 3433',
+      href: 'tel:+234 9064386898',
     },
     {
       icon: MapPin,
