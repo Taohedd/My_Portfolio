@@ -1,19 +1,49 @@
 @import "tailwindcss";
 
-/* Custom Typography */
+/* =========================
+   BASE RESET & SAFETY
+========================= */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden; /* 🔑 prevents mobile horizontal scroll */
+}
+
+/* =========================
+   TYPOGRAPHY
+========================= */
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background-color: #0A0A0F;
   color: #ffffff;
+  line-height: 1.6;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Inter', sans-serif;
+h1 {
   font-weight: 700;
   letter-spacing: -0.02em;
+  font-size: clamp(2rem, 5vw, 3.5rem);
 }
 
-/* Glassmorphism */
+h2 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+}
+
+h3 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+/* =========================
+   GLASSMORPHISM
+========================= */
 .glass {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
@@ -28,28 +58,51 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-/* Neon Glows */
+/* Mobile performance adjustment */
+@media (max-width: 640px) {
+  .glass {
+    backdrop-filter: blur(6px);
+  }
+
+  .glass-strong {
+    backdrop-filter: blur(10px);
+  }
+}
+
+/* =========================
+   NEON EFFECTS
+========================= */
 .neon-blue {
-  box-shadow: 0 0 20px rgba(0, 168, 255, 0.5), 0 0 40px rgba(0, 168, 255, 0.3);
+  box-shadow:
+    0 0 20px rgba(0, 168, 255, 0.5),
+    0 0 40px rgba(0, 168, 255, 0.3);
 }
 
 .neon-purple {
-  box-shadow: 0 0 20px rgba(155, 92, 255, 0.5), 0 0 40px rgba(155, 92, 255, 0.3);
+  box-shadow:
+    0 0 20px rgba(155, 92, 255, 0.5),
+    0 0 40px rgba(155, 92, 255, 0.3);
 }
 
 .neon-border-blue {
   border: 1px solid #00A8FF;
-  box-shadow: 0 0 10px rgba(0, 168, 255, 0.5), inset 0 0 10px rgba(0, 168, 255, 0.2);
+  box-shadow:
+    0 0 10px rgba(0, 168, 255, 0.5),
+    inset 0 0 10px rgba(0, 168, 255, 0.2);
 }
 
 .neon-border-purple {
   border: 1px solid #9B5CFF;
-  box-shadow: 0 0 10px rgba(155, 92, 255, 0.5), inset 0 0 10px rgba(155, 92, 255, 0.2);
+  box-shadow:
+    0 0 10px rgba(155, 92, 255, 0.5),
+    inset 0 0 10px rgba(155, 92, 255, 0.2);
 }
 
-/* Animated Grid Background */
+/* =========================
+   GRID BACKGROUND
+========================= */
 .grid-background {
-  background-image: 
+  background-image:
     linear-gradient(rgba(0, 168, 255, 0.1) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0, 168, 255, 0.1) 1px, transparent 1px);
   background-size: 50px 50px;
@@ -57,54 +110,75 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @keyframes gridMove {
-  0% {
+  from {
     background-position: 0 0;
   }
-  100% {
+  to {
     background-position: 50px 50px;
   }
 }
 
-/* Gradient Text */
+/* Disable heavy animation on mobile */
+@media (max-width: 640px) {
+  .grid-background {
+    background-size: 30px 30px;
+    animation: none;
+  }
+}
+
+/* =========================
+   GRADIENT TEXT
+========================= */
 .gradient-text {
   background: linear-gradient(135deg, #00A8FF 0%, #9B5CFF 100%);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
-/* Hover Effects */
+/* =========================
+   HOVER EFFECTS (SAFE)
+========================= */
 .hover-glow {
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.hover-glow:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 40px rgba(0, 168, 255, 0.4);
+/* Apply hover ONLY on hover-capable devices */
+@media (hover: hover) {
+  .hover-glow:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 40px rgba(0, 168, 255, 0.4);
+  }
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
+/* =========================
+   SCROLLBAR (DESKTOP ONLY)
+========================= */
+@media (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0A0A0F;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #00A8FF 0%, #9B5CFF 100%);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #00B8FF 0%, #AB6CFF 100%);
+  }
 }
 
-::-webkit-scrollbar-track {
-  background: #0A0A0F;
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #00A8FF 0%, #9B5CFF 100%);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #00B8FF 0%, #AB6CFF 100%);
-}
-
-/* Floating Animation */
+/* =========================
+   FLOATING ANIMATION
+========================= */
 @keyframes float {
   0%, 100% {
-    transform: translateY(0px);
+    transform: translateY(0);
   }
   50% {
     transform: translateY(-20px);
@@ -115,16 +189,36 @@ h1, h2, h3, h4, h5, h6 {
   animation: float 6s ease-in-out infinite;
 }
 
-/* Pulse Glow */
+/* Disable on mobile */
+@media (max-width: 640px) {
+  .float {
+    animation: none;
+  }
+}
+
+/* =========================
+   PULSE GLOW
+========================= */
 @keyframes pulseGlow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(0, 168, 255, 0.5), 0 0 40px rgba(0, 168, 255, 0.3);
+    box-shadow:
+      0 0 20px rgba(0, 168, 255, 0.5),
+      0 0 40px rgba(0, 168, 255, 0.3);
   }
   50% {
-    box-shadow: 0 0 30px rgba(0, 168, 255, 0.8), 0 0 60px rgba(0, 168, 255, 0.5);
+    box-shadow:
+      0 0 30px rgba(0, 168, 255, 0.8),
+      0 0 60px rgba(0, 168, 255, 0.5);
   }
 }
 
 .pulse-glow {
   animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* Disable on mobile */
+@media (max-width: 640px) {
+  .pulse-glow {
+    animation: none;
+  }
 }
