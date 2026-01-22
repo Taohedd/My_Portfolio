@@ -55,7 +55,7 @@ export function Home({ onNavigate }: HomeProps) {
   return (
     <div className="min-h-screen">
       {/* ================= HERO ================= */}
-      <section className="relative min-h-[100svh] md:min-h-screen flex items-center px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="relative min-h-svh md:min-h-screen flex items-center px-4 sm:px-6 lg:px-8 overflow-hidden">
         {/* Background */}
         <div className="absolute inset-0 grid-background opacity-30" />
 

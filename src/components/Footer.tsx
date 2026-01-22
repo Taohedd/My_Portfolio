@@ -9,7 +9,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className="relative mt-24 px-4 sm:px-6 lg:px-8 pb-12">
+    <footer className="relative my-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Divider */}
         <div className="h-px bg-gradient-to-r from-transparent via-[#00A8FF]/50 to-transparent mb-8 sm:mb-12"></div>

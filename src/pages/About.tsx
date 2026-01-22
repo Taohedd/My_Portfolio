@@ -1,4 +1,5 @@
 import { Download, Award, Briefcase, GraduationCap, Code2, Palette, Layers, Zap } from 'lucide-react';
+import PageWrapper from '../common/page-wrapper';
 
 interface AboutProps {
   onNavigate: (page: string) => void;
@@ -50,7 +51,7 @@ export function About({ onNavigate }: AboutProps) {
   ];
 
   return (
-    <div className="min-h-screen pt-32 px-8 pb-24">
+    <PageWrapper>
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-24">
@@ -66,29 +67,29 @@ export function About({ onNavigate }: AboutProps) {
               </div>
             </div>
             {/* Floating badge */}
-            <div className="absolute -bottom-6 -right-6 glass-strong rounded-2xl p-6 neon-border-purple">
+            <div className="absolute -bottom-4 right-0 sm:-bottom-6 glass-strong rounded-2xl p-4 sm:p-6 neon-border-purple">
               <div className="text-sm text-gray-400 mb-1">Years Experience</div>
-              <div className="text-3xl gradient-text">4+</div>
+              <div className="text-2xl sm:text-3xl gradient-text">4+</div>
             </div>
           </div>
 
           {/* Right - Bio */}
           <div>
-            <h1 className="text-5xl md:text-6xl mb-6">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl mb-6">
               About <span className="gradient-text">Me</span>
             </h1>
-            <div className="glass-strong rounded-2xl p-8 mb-6">
+             <div className="glass-strong rounded-2xl p-5 sm:p-8 mb-6">
               <p className="text-gray-300 leading-relaxed mb-4">
-                Hi, I'm <span className="text-[#00A8FF]">Rahamon Taoheed Ayomide</span> a passionate UI/UX Designer with over 4 years of experience crafting beautiful, intuitive, and functional digital products. I believe great design is where aesthetics meets purpose.
+                Hi, I'm <span className="text-[#00A8FF]">Rahamon Taoheed Ayomide</span> a passionate UI/UX Designer with over 4 years of experience crafting beautiful, intuitive, and functional digital products.
               </p>
               <p className="text-gray-300 leading-relaxed mb-4">
-                My approach combines user research, creative problem-solving, and cutting-edge design techniques to create experiences that not only look stunning but also deliver real value to users and businesses.
+                My approach combines user research, creative problem-solving, and cutting-edge design techniques.
               </p>
               <p className="text-gray-300 leading-relaxed">
-                When I'm not designing, you'll find me exploring new design trends, contributing to design communities, or experimenting with the latest design tools and technologies.
+                When I'm not designing, you'll find me exploring new design trends.
               </p>
             </div>
-            <button className="px-8 py-4 rounded-full neon-border-blue bg-[#00A8FF]/10 text-[#00A8FF] hover:bg-[#00A8FF]/20 transition-all duration-300 inline-flex items-center gap-2 group">
+            <button className="px-6 sm:px-8 py-3 sm:py-4 rounded-full neon-border-blue bg-[#00A8FF]/10 text-[#00A8FF] hover:bg-[#00A8FF]/20 transition-all duration-300 inline-flex items-center gap-2 group">
               <Download size={20} className="group-hover:translate-y-0.5 transition-transform" />
               Download Resume
             </button>
@@ -97,7 +98,7 @@ export function About({ onNavigate }: AboutProps) {
 
         {/* Skills */}
         <section className="mb-24">
-          <h2 className="text-4xl md:text-5xl mb-12">
+         <h2 className="text-3xl sm:text-4xl md:text-5xl mb-12">
             My <span className="gradient-text">Skills</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -130,12 +131,12 @@ export function About({ onNavigate }: AboutProps) {
 
         {/* Journey Timeline */}
         <section className="mb-24">
-          <h2 className="text-4xl md:text-5xl mb-12">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl mb-12">
             My <span className="gradient-text">Journey</span>
           </h2>
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-[#00A8FF] via-[#9B5CFF] to-transparent hidden md:block"></div>
+            <div className="absolute left-8 top-0 bottom-0 w-px bg-linear-to-b from-[#00A8FF] via-[#9B5CFF] to-transparent hidden md:block"></div>
 
             <div className="space-y-8">
               {journey.map((item, index) => (
@@ -168,18 +169,15 @@ export function About({ onNavigate }: AboutProps) {
 
         {/* Keywords Cloud */}
         <section className="mb-24">
-          <h2 className="text-4xl md:text-5xl mb-12 text-center">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl mb-12 text-center">
             Design <span className="gradient-text">Expertise</span>
           </h2>
-          <div className="glass-strong rounded-3xl p-12">
-            <div className="flex flex-wrap gap-4 justify-center">
+          <div className="glass-strong rounded-3xl p-6 sm:p-12">
+            <div className="flex flex-wrap gap-3 sm:gap-4 justify-center">
               {keywords.map((keyword, index) => (
                 <span
                   key={index}
-                  className="px-6 py-3 rounded-full glass neon-border-blue text-[#00A8FF] hover:bg-[#00A8FF]/20 transition-all duration-300 cursor-default hover:scale-110"
-                  style={{
-                    fontSize: `${0.875 + Math.random() * 0.5}rem`,
-                  }}
+                  className="px-4 sm:px-6 py-2 sm:py-3 rounded-full glass neon-border-blue text-[#00A8FF] hover:bg-[#00A8FF]/20 transition-all duration-300 cursor-default hover:scale-110 text-sm sm:text-base"
                 >
                   {keyword}
                 </span>
@@ -190,23 +188,23 @@ export function About({ onNavigate }: AboutProps) {
 
         {/* CTA */}
         <section>
-          <div className="glass-strong rounded-3xl p-12 text-center neon-border-purple">
-            <h2 className="text-3xl md:text-4xl mb-4">
+          <div className="glass-strong rounded-3xl p-6 sm:p-12 text-center neon-border-purple">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl mb-4">
               Interested in <span className="gradient-text">Working Together?</span>
             </h2>
-            <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
-              I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+            <p className="text-gray-400 mb-8 max-w-2xl mx-auto text-sm sm:text-base">
+              I'm always open to discussing new projects.
             </p>
             <button
               onClick={() => onNavigate('contact')}
-              className="px-8 py-4 rounded-full neon-border-blue bg-[#00A8FF]/10 text-[#00A8FF] hover:bg-[#00A8FF]/20 transition-all duration-300"
+              className="px-6 sm:px-8 py-3 sm:py-4 rounded-full neon-border-blue bg-[#00A8FF]/10 text-[#00A8FF] hover:bg-[#00A8FF]/20 transition-all duration-300"
             >
               Get In Touch
             </button>
           </div>
         </section>
       </div>
-    </div>
+    </PageWrapper>
   );
 }
 

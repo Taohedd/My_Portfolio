@@ -27,7 +27,7 @@ export function Contact() {
   const contactInfo = [
     { icon: Mail, label: 'Email', value: 'taoheedrahamon4@gmail.com', href: 'mailto:taoheedrahamon4@gmail.com' },
     { icon: Phone, label: 'Phone', value: '+234 815270 3433', href: 'tel:+2348152703433' },
-    { icon: MapPin, label: 'Location', value: 'San Francisco, CA', href: '#' },
+    { icon: MapPin, label: 'Location', value: 'Ibadan, Oyo State Nigeria', href: '#' },
   ];
 
   const socialLinks = [
@@ -151,16 +151,19 @@ export function Contact() {
           </div>
         </div>
 
-       {/* Availability */}
-<div className="glass-strong rounded-xl p-2 sm:p-4 border-l-4 border-[#00A8FF]">
-  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2">
-    <div className="w-3 h-3 sm:w-3 sm:h-3 rounded-full bg-[#00FF00] mt-1 shrink-0 pulse-glow"></div>
-    <div className="flex-1 min-w-0">
-      <h3 className="text-xs sm:text-sm font-medium mb-1 sm:mb-2">
+  {/* Availability */}
+<div className="glass-strong rounded-lg p-2 sm:p-4 border-l-2 sm:border-l-4 border-[#00A8FF]">
+  <div className="flex items-start gap-2 sm:gap-3">
+    {/* Status Dot */}
+    <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#00FF00] mt-1 shrink-0 pulse-glow" />
+
+    {/* Text */}
+    <div className="flex-1">
+      <h4 className="text-xs sm:text-sm font-semibold mb-0.5 sm:mb-1">
         Currently Available
-      </h3>
-      <p className="text-gray-400 text-xs sm:text-sm leading-snug">
-        I'm currently accepting new projects and freelance opportunities. Let's discuss how I can help bring your vision to life.
+      </h4>
+      <p className="text-[11px] sm:text-sm text-gray-400 leading-snug">
+        Accepting new projects and freelance opportunities. Let’s build something great together.
       </p>
     </div>
   </div>

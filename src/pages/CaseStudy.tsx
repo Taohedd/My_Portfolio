@@ -1,7 +1,7 @@
 import { ArrowLeft, Calendar, Users, Target, TrendingUp, CheckCircle2 } from 'lucide-react';
 import homeImg from '../assets/projects/homepage.jpg'
 interface CaseStudyProps {
-  projectId?: string;
+  projectId?: string; //
   onNavigate: (page: string) => void;
 }
 
@@ -19,7 +19,7 @@ export function CaseStudy({ projectId, onNavigate }: CaseStudyProps) {
   };
 
   return (
-    <div className="min-h-screen pt-32 px-8 pb-24">
+    <div className="min-h-screen pt-32 px-4 sm:px-6 lg:px-8 pb-24">
       <div className="max-w-5xl mx-auto">
         {/* Back Button */}
         <button
@@ -32,7 +32,7 @@ export function CaseStudy({ projectId, onNavigate }: CaseStudyProps) {
 
         {/* Hero Header */}
         <div className="glass-strong rounded-3xl overflow-hidden mb-16">
-          <div className="relative h-96">
+          <div className="relative h-[260px] sm:h-80 md:h-96">
             <img
               src={project.Image}
               alt={project.title}
@@ -40,7 +40,7 @@ export function CaseStudy({ projectId, onNavigate }: CaseStudyProps) {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0F] via-[#0A0A0F]/70 to-transparent flex items-end">
               <div className="p-8 md:p-12 w-full">
-                <h1 className="text-4xl md:text-6xl mb-4 text-white">
+                <h1 className="text-xl sm:text-3xl md:text-4xl mb-6 sm:mb-8">
                   {project.title}
                 </h1>
                 <p className="text-xl text-gray-300">
@@ -53,10 +53,10 @@ export function CaseStudy({ projectId, onNavigate }: CaseStudyProps) {
 
         {/* Overview */}
         <section className="mb-16">
-          <h2 className="text-3xl md:text-4xl mb-8">
+          <h2 className="text-xl sm:text-3xl md:text-4xl mb-6 sm:mb-8">
             Project <span className="gradient-text">Overview</span>
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-8">
             {[
               { label: 'Role', value: project.overview.role, icon: Users },
               { label: 'Duration', value: project.overview.duration, icon: Calendar },
@@ -191,8 +191,8 @@ export function CaseStudy({ projectId, onNavigate }: CaseStudyProps) {
                 'Manage Wastes',
                 
               ].map((step, index) => (
-                <div key={index} className="flex items-center gap-4">
-                  <div className="glass rounded-xl px-6 py-4 text-center min-w-[140px]">
+                <div key={index} className="flex flex-col md:flex-row items-center gap-4 w-full md:w-auto">
+                  <div className="glass rounded-xl px-4 py-3 text-center w-full md:min-w-[140px]">
                     <div className="w-8 h-8 rounded-full bg-[#00A8FF] text-white flex items-center justify-center mx-auto mb-2">
                       {index + 1}
                     </div>
@@ -212,10 +212,10 @@ export function CaseStudy({ projectId, onNavigate }: CaseStudyProps) {
           <h2 className="text-3xl md:text-4xl mb-8">
             Final <span className="gradient-text">UI Screens</span>
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             {[1, 2, 3, 4].map((screen) => (
               <div key={screen} className="glass-strong rounded-2xl overflow-hidden hover-glow">
-                <div className="aspect-[9/16] bg-gradient-to-br from-[#00A8FF]/20 to-[#9B5CFF]/20 flex items-center justify-center">
+                <div className="aspect-[9/16] flex items-center justify-center">
                   <img
                     src="https://images.unsplash.com/photo-1605108222700-0d605d9ebafe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBpbnRlcmZhY2V8ZW58MXx8fHwxNzY0Njc2NDE1fDA&ixlib=rb-4.1.0&q=80&w=1080"
                     alt={`Screen ${screen}`}

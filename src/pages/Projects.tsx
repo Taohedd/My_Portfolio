@@ -1,6 +1,7 @@
 import { Search, Filter } from 'lucide-react';
 import ProjectCard from '../components/Projectcard';
 import { useState } from 'react';
+import PageWrapper from '../common/page-wrapper';
 
 interface ProjectsProps {
   onNavigate: (page: string, projectId?: string) => void;
@@ -68,7 +69,7 @@ export function Projects({ onNavigate }: ProjectsProps) {
       : projects.filter((p) => p.category === selectedCategory);
 
   return (
-    <div className="min-h-screen pt-20 sm:pt-24 px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16">
+    <PageWrapper>
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8 sm:mb-12">
@@ -140,7 +141,7 @@ export function Projects({ onNavigate }: ProjectsProps) {
           ))}
         </div>
       </div>
-    </div>
+    </PageWrapper>
   );
 }
 
