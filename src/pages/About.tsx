@@ -177,7 +177,7 @@ export function About({ onNavigate }: AboutProps) {
               {keywords.map((keyword, index) => (
                 <span
                   key={index}
-                  className="px-4 sm:px-6 py-2 sm:py-3 rounded-full glass neon-border-blue text-[#00A8FF] hover:bg-[#00A8FF]/20 transition-all duration-300 cursor-default hover:scale-110 text-sm sm:text-base"
+                  className="px-4 sm:px-6 py-2 sm:py-3 rounded-full glass neon-border-blue text-[#00A8FF] hover:bg-[#00A8FF]/20 transition-all text-center duration-300 cursor-default hover:scale-110 text-sm sm:text-base"
                 >
                   {keyword}
                 </span>

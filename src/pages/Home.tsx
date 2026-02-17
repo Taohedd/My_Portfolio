@@ -8,7 +8,9 @@ import {
   Layers,
 } from 'lucide-react';
 import { ProjectCard } from '../components/Projectcard';
-
+import sicklecellimg from '../assets/projects/Sicklecell.jpg';
+import wasteimg from '../assets/projects/Wasteapp1.jpg';
+import tidalwave from '../assets/projects/Tidalwave.jpg'
 interface HomeProps {
   onNavigate: (page: string, projectId?: string) => void;
 }
@@ -16,32 +18,31 @@ interface HomeProps {
 export function Home({ onNavigate }: HomeProps) {
   const projects = [
     {
-      id: 'fintech-app',
-      title: 'FinTech Mobile Banking App',
+      id: 'Waste App',
+      title: 'Waste Management App',
       description:
-        'A revolutionary mobile banking experience with AI-powered insights and seamless money management.',
-      image:
-        'https://images.unsplash.com/photo-1605108222700-0d605d9ebafe?auto=format&fit=crop&w=1080&q=80',
-      tags: ['Mobile App', 'UI/UX', 'FinTech'],
+        'WasteGrid is a mobile application designed to help citizens manage waste responsibly while earning rewards. The app educates users on proper waste disposal methods, recycling practices, and environmental safety, making it easier for everyone to contribute to a cleaner community.',
+      image: wasteimg, // ✅ local image
+      tags: ['Mobile App', 'UI/UX', 'Waste'],
       featured: true,
     },
     {
-      id: 'saas-dashboard',
-      title: 'SaaS Analytics Platform',
+       id: 'Health App',
+      title: 'Sickle Cell Management App',
       description:
-        'Enterprise dashboard for data visualization with real-time analytics and beautiful charts.',
-      image:
-        'https://images.unsplash.com/photo-1750056393300-102f7c4b8bc2?auto=format&fit=crop&w=1080&q=80',
-      tags: ['Web App', 'Dashboard', 'SaaS'],
+        'AmbleVerse is a mobile health and support app designed specifically for people living with sickle cell (often called warriors), as well as their guardians and caregivers. The app provides tools to help users manage daily health, track symptoms and crises, set medication reminders, and keep important medical records in one place.',
+      image: sicklecellimg, // ✅ local image
+      tags: ['Mobile App', 'UI/UX', 'Health'],
+      featured: true,
     },
     {
-      id: 'ecommerce-redesign',
-      title: 'E-Commerce Redesign',
+      id: 'Waste App ',
+      title: 'Tidal Wave',
       description:
-        'Modern shopping experience with personalized recommendations and smooth checkout flow.',
-      image:
-        'https://images.unsplash.com/photo-1703355685639-d558d1b0f63e?auto=format&fit=crop&w=1080&q=80',
-      tags: ['E-Commerce', 'Mobile', 'Web'],
+        'TidalWave is a smart IoT-powered waste management mobile application that connects citizens, waste authorities like Lagos Waste Management Authority (LAWMA), and registered waste contractors on one intelligent platform. The system uses smart waste bins equipped with IoT sensors to monitor fill levels in real time, ensuring faster, more efficient waste collection and cleaner communities.',
+      image: tidalwave, // ✅ local image
+      tags: ['Waste', 'Mobile', 'Web'],
+      featured: true,
     },
   ];
 
@@ -49,7 +50,6 @@ export function Home({ onNavigate }: HomeProps) {
     { name: 'Figma', icon: Figma, color: '#00A8FF' },
     { name: 'Illustrator', icon: Palette, color: '#9B5CFF' },
     { name: 'Photoshop', icon: Layout, color: '#00A8FF' },
-    { name: 'Framer', icon: Layers, color: '#9B5CFF' },
   ];
 
   return (
@@ -137,7 +137,7 @@ export function Home({ onNavigate }: HomeProps) {
                   style={{ animationDelay: '1s' }}
                 >
                   <div className="text-sm text-gray-400 mb-1">Experience</div>
-                  <div className="text-2xl gradient-text">5+ Years</div>
+                  <div className="text-2xl gradient-text">4+ Years</div>
                 </div>
               </div>
             </div>

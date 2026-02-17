@@ -9,7 +9,8 @@ interface ProjectCardProps {
   onClick?: () => void;
 }
 
-export function ProjectCard({ title, description, image, tags, featured, onClick }: ProjectCardProps) {
+export function ProjectCard({ 
+  title, description, image, tags, featured, onClick, }: ProjectCardProps) {
   return (
     <div 
       className={`group relative overflow-hidden rounded-3xl glass hover-glow cursor-pointer ${
