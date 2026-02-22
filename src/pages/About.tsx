@@ -1,11 +1,14 @@
 import { Download, Award, Briefcase, GraduationCap, Code2, Palette, Layers, Zap } from 'lucide-react';
 import PageWrapper from '../common/page-wrapper';
+import homepic from '../assets/projects/homepic.jpeg';
+import { useNavigate } from 'react-router-dom';
 
 interface AboutProps {
   onNavigate: (page: string) => void;
 }
 
-export function About({ onNavigate }: AboutProps) {
+export function About() {
+  const navigate = useNavigate();
   const skills = [
     { name: 'UI Design', level: 95, icon: Palette },
     { name: 'UX Research', level: 90, icon: Briefcase },
@@ -19,14 +22,14 @@ export function About({ onNavigate }: AboutProps) {
     {
       year: '2024 - Present',
       title: 'Senior UI/UX Designer',
-      company: 'Tech Innovations Inc.',
-      description: 'Leading design initiatives for enterprise SaaS products, managing a team of 5 designers.',
+      company: 'ZuriFlux GreenTech Ltd.',
+      description: 'Leading design initiatives for enterprise.',
     },
     {
-      year: '2022 - 2024',
+      year: '2024',
       title: 'UI/UX Designer',
-      company: 'Digital Solutions Co.',
-      description: 'Designed mobile and web applications for various clients across different industries.',
+      company: 'Crescent Vitalis.',
+      description: 'Designed mobile and web applications for Sickle Cell patients,guardians and caregivers.',
     },
     {
       year: '2020 - 2022',
@@ -35,9 +38,30 @@ export function About({ onNavigate }: AboutProps) {
       description: 'Worked on branding, web design, and user interface projects for startups.',
     },
     {
-      year: '2016 - 2020',
-      title: 'Bachelor in Design',
-      company: 'University of Arts',
+      year: '2020 - 2022',
+      title: 'Ordinary National Diploma (OND) in Computer Science',
+      company: 'The Polytechnic Ibadan',
+      description: 'Graduated with honors, specializing in digital design and human-computer interaction.',
+      isEducation: true,
+    },
+     {
+      year: '2021',
+      title: 'SIWES Programme',
+      company: 'Idea Konsult Ltd.',
+      description: 'Supported IT operations and Repairs of computer systems.',
+      isEducation: true,
+    },
+     {
+      year: '2022 - 2023',
+      title: 'IT Intern',
+      company: 'Advans Laffayette Microfinance Bank',
+      description: 'Supported IT operations and contributed to digital design projects.',
+      isEducation: true,
+    },
+     {
+      year: '2024 - Present',
+      title: 'Higher National Diploma (HND) in Computer Science',
+      company: 'The Polytechnic Ibadan',
       description: 'Graduated with honors, specializing in digital design and human-computer interaction.',
       isEducation: true,
     },
@@ -45,9 +69,9 @@ export function About({ onNavigate }: AboutProps) {
 
   const keywords = [
     'User-Centered Design', 'Visual Design', 'Interaction Design', 'Wireframing',
-    'Prototyping', 'Design Thinking', 'Usability Testing', 'Information Architecture',
+    'Prototyping', 'Design Thinking', 'Usability Testing',
     'Responsive Design', 'Mobile First', 'Accessibility', 'Design Systems',
-    'Micro-interactions', 'Design Sprint', 'A/B Testing', 'Figma Expert',
+    'Micro-interactions', 'A/B Testing', 'Figma Expert',
   ];
 
   return (
@@ -60,15 +84,14 @@ export function About({ onNavigate }: AboutProps) {
             <div className="glass-strong rounded-3xl overflow-hidden p-4 neon-border-blue">
               <div className="rounded-2xl overflow-hidden">
                 <img
-                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwxfHx8fDE3NjQ2MDA0MjF8MA&ixlib=rb-4.1.0&q=80&w=1080"
-                  alt="Taoheed"
+                  src={homepic}
                   className="w-full h-auto object-cover"
                 />
               </div>
             </div>
             {/* Floating badge */}
-            <div className="absolute -bottom-4 right-0 sm:-bottom-6 glass-strong rounded-2xl p-4 sm:p-6 neon-border-purple">
-              <div className="text-sm text-gray-400 mb-1">Years Experience</div>
+            <div className="absolute -bottom-4 right-0 sm:-bottom-6 glass-strong rounded-2xl p-4 sm:p-6 neon-border-blue">
+              <div className="text-sm text-blue-400 mb-1">Years Experience</div>
               <div className="text-2xl sm:text-3xl gradient-text">4+</div>
             </div>
           </div>
@@ -89,10 +112,16 @@ export function About({ onNavigate }: AboutProps) {
                 When I'm not designing, you'll find me exploring new design trends.
               </p>
             </div>
-            <button className="px-6 sm:px-8 py-3 sm:py-4 rounded-full neon-border-blue bg-[#00A8FF]/10 text-[#00A8FF] hover:bg-[#00A8FF]/20 transition-all duration-300 inline-flex items-center gap-2 group">
-              <Download size={20} className="group-hover:translate-y-0.5 transition-transform" />
-              Download Resume
-            </button>
+            <a 
+  href="/Rahamon Taoheed CV.pdf" // Ensure this file name matches exactly what's in your public folder
+  download="Rahamon Taoheed Resume.pdf"
+  className="inline-block w-full sm:w-auto"
+>
+  <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 rounded-full neon-border-blue bg-[#00A8FF]/10 text-[#00A8FF] hover:bg-[#00A8FF]/20 transition-all duration-300 inline-flex items-center justify-center gap-2 group">
+    <Download size={20} className="group-hover:translate-y-0.5 transition-transform" />
+    Download Resume
+  </button>
+</a>
           </div>
         </div>
 
@@ -196,7 +225,7 @@ export function About({ onNavigate }: AboutProps) {
               I'm always open to discussing new projects.
             </p>
             <button
-              onClick={() => onNavigate('contact')}
+              onClick={() => navigate('/contact')}
               className="px-6 sm:px-8 py-3 sm:py-4 rounded-full neon-border-blue bg-[#00A8FF]/10 text-[#00A8FF] hover:bg-[#00A8FF]/20 transition-all duration-300"
             >
               Get In Touch

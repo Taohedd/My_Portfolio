@@ -11,14 +11,17 @@ import { ProjectCard } from '../components/Projectcard';
 import sicklecellimg from '../assets/projects/Sicklecell.jpg';
 import wasteimg from '../assets/projects/Wasteapp1.jpg';
 import tidalwave from '../assets/projects/Tidalwave.jpg'
+import homepic from '../assets/projects/homepic.jpeg';
+import { useNavigate } from 'react-router-dom';
 interface HomeProps {
   onNavigate: (page: string, projectId?: string) => void;
 }
 
-export function Home({ onNavigate }: HomeProps) {
+export function Home() {
+  const navigate = useNavigate();
   const projects = [
     {
-      id: 'Waste App',
+      id: 'waste-management',
       title: 'Waste Management App',
       description:
         'WasteGrid is a mobile application designed to help citizens manage waste responsibly while earning rewards. The app educates users on proper waste disposal methods, recycling practices, and environmental safety, making it easier for everyone to contribute to a cleaner community.',
@@ -27,7 +30,7 @@ export function Home({ onNavigate }: HomeProps) {
       featured: true,
     },
     {
-       id: 'Health App',
+       id: 'sickle-cell',
       title: 'Sickle Cell Management App',
       description:
         'AmbleVerse is a mobile health and support app designed specifically for people living with sickle cell (often called warriors), as well as their guardians and caregivers. The app provides tools to help users manage daily health, track symptoms and crises, set medication reminders, and keep important medical records in one place.',
@@ -36,7 +39,7 @@ export function Home({ onNavigate }: HomeProps) {
       featured: true,
     },
     {
-      id: 'Waste App ',
+      id: 'tidal-wave',
       title: 'Tidal Wave',
       description:
         'TidalWave is a smart IoT-powered waste management mobile application that connects citizens, waste authorities like Lagos Waste Management Authority (LAWMA), and registered waste contractors on one intelligent platform. The system uses smart waste bins equipped with IoT sensors to monitor fill levels in real time, ensuring faster, more efficient waste collection and cleaner communities.',
@@ -94,7 +97,7 @@ export function Home({ onNavigate }: HomeProps) {
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
-                  onClick={() => onNavigate('projects')}
+                  onClick={() => navigate('/projects')}
                   className="px-8 py-4 rounded-full neon-border-blue bg-[#00A8FF]/10 text-[#00A8FF] hover:bg-[#00A8FF]/20 transition-all inline-flex items-center gap-2 justify-center group"
                 >
                   Explore My Work
@@ -117,9 +120,8 @@ export function Home({ onNavigate }: HomeProps) {
                 <div className="glass-strong rounded-3xl p-6 sm:p-8 pulse-glow">
                   <div className="w-full h-72 sm:h-96 rounded-2xl overflow-hidden relative">
                     <img
-                      src="https://images.unsplash.com/photo-1762279388952-85187155e48d?auto=format&fit=crop&w=1080&q=80"
-                      alt="Tech abstract"
-                      className="w-full h-full object-cover opacity-80"
+                      src={homepic}
+                      className="w-full h-full object-cover opacity-100"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0F] to-transparent" />
                   </div>
@@ -159,7 +161,7 @@ export function Home({ onNavigate }: HomeProps) {
             </div>
 
             <button
-              onClick={() => onNavigate('projects')}
+              onClick={() => navigate('/projects')}
               className="hidden md:inline-flex items-center gap-2 text-[#00A8FF] hover:gap-4 transition-all"
             >
               View All Projects
@@ -173,7 +175,7 @@ export function Home({ onNavigate }: HomeProps) {
                 key={project.id}
                 {...project}
                 onClick={() =>
-                  onNavigate('case-study', project.id)
+                  navigate(`/projects/${project.id}`)
                 }
               />
             ))}
@@ -219,7 +221,7 @@ export function Home({ onNavigate }: HomeProps) {
               Have a project in mind? Let&apos;s build it together.
             </p>
             <button
-              onClick={() => onNavigate('contact')}
+              onClick={() => navigate('/contact')}
               className="px-8 py-4 rounded-full neon-border-blue bg-[#00A8FF]/10 text-[#00A8FF] hover:bg-[#00A8FF]/20 transition-all inline-flex items-center gap-2 group"
             >
               Start a Conversation

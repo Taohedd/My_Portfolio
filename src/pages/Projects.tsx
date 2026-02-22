@@ -6,14 +6,16 @@ import sicklecellimg from '../assets/projects/Sicklecell.jpg';
 import wasteimg from '../assets/projects/Wasteapp1.jpg';
 import tidalwave from '../assets/projects/Tidalwave.jpg';
 import GIITSC from '../assets/projects/giitc.jpg';
+import { useNavigate } from 'react-router-dom';
 
 interface ProjectsProps {
   onNavigate: (page: string, projectId?: string) => void;
 }
 
-export function Projects({ onNavigate }: ProjectsProps) {
+export function Projects() {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState(''); // Added search state
+  const navigate = useNavigate();
 
   const categories = ['All', 'Mobile', 'Web', 'Dashboard', 'E-Commerce'];
 
@@ -129,7 +131,7 @@ export function Projects({ onNavigate }: ProjectsProps) {
               key={project.id}
               {...project}
               // ERROR FIX: Match the 'casestudy' case in App.tsx
-              onClick={() => onNavigate('casestudy', project.id)} 
+              onClick={() => navigate(`/projects/${project.id}`)}
             />
           ))}
         </div>

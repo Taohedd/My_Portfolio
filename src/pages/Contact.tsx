@@ -1,7 +1,12 @@
-import { Mail, MapPin, Phone, Send, Linkedin, Dribbble, Github, Twitter } from 'lucide-react';
-import { useState } from 'react';
+import { Mail, MapPin, Phone, Send, Linkedin, Dribbble, Github, Twitter, Loader2 } from 'lucide-react';
+import { useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 
 export function Contact() {
+  const formRef = useRef<HTMLFormElement>(null);
+  const [isSending, setIsSending] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -9,24 +14,39 @@ export function Contact() {
     message: '',
   });
 
-  const [submitted, setSubmitted] = useState(false);
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
-  };
+    if (!formRef.current) return;
 
+    setIsSending(true);
+    emailjs.sendForm(
+      'service_pq64tnf',
+      'template_1aqbj0i',
+      formRef.current,
+      'aByRI696X_T7M7Kec'
+    )
+    .then(() => {
+      setSubmitted(true);
+      setFormData({ name: '', email: '', subject: '', message: '' }); // Reset form
+      setTimeout(() => setSubmitted(false), 5000);
+    })
+    .catch((error) => {
+      console.error('Email Error:', error);
+      alert('Failed to send message. Please try again.');
+    })
+    .finally(() => {
+      setIsSending(false);
+    });
+  };
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
   };
-
   const contactInfo = [
     { icon: Mail, label: 'Email', value: 'taoheedrahamon4@gmail.com', href: 'mailto:taoheedrahamon4@gmail.com' },
-    { icon: Phone, label: 'Phone', value: '+234 815270 3433', href: 'tel:+2348152703433' },
+    { icon: Phone, label: 'Phone', value: '+234 81-5270-3433', href: 'tel:+2348152703433' },
     { icon: MapPin, label: 'Location', value: 'Ibadan, Oyo State Nigeria', href: '#' },
   ];
 
@@ -52,28 +72,28 @@ export function Contact() {
     </div>
 {/* Form + Contact Info */}
 <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 sm:gap-6">
-  {/* Contact Form */}
-  <div>
-    <div className="glass-strong rounded-2xl p-3 sm:p-6">
-      <h2 className="text-lg sm:text-xl mb-2 sm:mb-4">Send Me a Message</h2>
-      <form onSubmit={handleSubmit} className="space-y-2 sm:space-y-4">
-        {['name','email','subject'].map((field) => (
-          <div key={field}>
-            <label htmlFor={field} className="block text-xs sm:text-sm text-gray-400 mb-1 sm:mb-2">
-              {field === 'name' ? 'Your Name' : field === 'email' ? 'Email Address' : 'Subject'}
-            </label>
-            <input
-              type={field === 'email' ? 'email' : 'text'}
-              id={field}
-              name={field}
-              value={formData[field as keyof typeof formData]}
-              onChange={handleChange}
-              required
-              placeholder={field === 'name' ? 'John Doe' : field === 'email' ? 'john@example.com' : 'Project Inquiry'}
-              className="w-full px-2 sm:px-3 py-2 rounded-xl glass border border-[#00A8FF]/30 text-white placeholder-gray-500 focus:outline-none focus:border-[#00A8FF] focus:ring-2 focus:ring-[#00A8FF]/20 transition-all"
-            />
-          </div>
-        ))}
+          {/* Contact Form */}
+          <div>
+            <div className="glass-strong rounded-2xl p-3 sm:p-6">
+              <h2 className="text-lg sm:text-xl mb-2 sm:mb-4">Send Me a Message</h2>
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-2 sm:space-y-4">
+                {['name','email','subject'].map((field) => (
+                  <div key={field}>
+                    <label htmlFor={field} className="block text-xs sm:text-sm text-gray-400 mb-1 sm:mb-2 capitalize">
+                      {field === 'email' ? 'Email Address' : field}
+                    </label>
+                    <input
+                      type={field === 'email' ? 'email' : 'text'}
+                      id={field}
+                      name={field} // Important: name must match your EmailJS template variables
+                      value={formData[field as keyof typeof formData]}
+                      onChange={handleChange}
+                      required
+                      placeholder={field === 'name' ? 'John Doe' : field === 'email' ? 'john@example.com' : 'Project Inquiry'}
+                      className="w-full px-2 sm:px-3 py-2 rounded-xl glass border border-[#00A8FF]/30 text-white placeholder-gray-500 focus:outline-none focus:border-[#00A8FF] focus:ring-2 focus:ring-[#00A8FF]/20 transition-all"
+                    />
+                  </div>
+                ))}
 
         <div>
           <label htmlFor="message" className="block text-xs sm:text-sm text-gray-400 mb-1 sm:mb-2">
@@ -92,14 +112,21 @@ export function Contact() {
         </div>
 
         <button
-          type="submit"
-          className="w-full px-4 sm:px-6 py-2.5 sm:py-3 rounded-full neon-border-blue bg-[#00A8FF]/10 text-[#00A8FF] hover:bg-[#00A8FF]/20 transition-all duration-300 inline-flex items-center justify-center gap-1 sm:gap-2 text-sm sm:text-base"
-        >
-          {submitted ? 'Message Sent!' : <>Send Message <Send size={16} className="group-hover:translate-x-1 transition-transform" /></>}
-        </button>
-      </form>
-    </div>
-  </div>
+                  type="submit"
+                  disabled={isSending}
+                  className="w-full px-4 sm:px-6 py-2.5 sm:py-3 rounded-full neon-border-blue bg-[#00A8FF]/10 text-[#00A8FF] hover:bg-[#00A8FF]/20 transition-all duration-300 inline-flex items-center justify-center gap-1 sm:gap-2 text-sm sm:text-base disabled:opacity-50"
+                >
+                  {isSending ? (
+                    <Loader2 size={18} className="animate-spin" />
+                  ) : submitted ? (
+                    'Message Sent!'
+                  ) : (
+                    <>Send Message <Send size={16} /></>
+                  )}
+                </button>
+              </form>
+            </div>
+          </div>
 
       {/* Contact Info & Social */}
       <div className="space-y-2 sm:space-y-6">

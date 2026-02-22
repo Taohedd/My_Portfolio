@@ -9,7 +9,7 @@ export const projectdata = {
     subtitle: 'Better Care, Better Living',
     image: sicklecellimg,
     themeColor: '#800020',
-    overview: { role: 'Lead Designer', duration: '6 months', platform: 'Mobile', year: '2025' },
+    overview: { role: 'Lead Designer', duration: '2 months', platform: 'Mobile', year: '2025' },
     description:'AmbleVerse is a comprehensive mobile health and support platform designed to improve the daily lives of people living  with sickle cell disorder (often called warriors), as well as their guardians and caregivers. The app combines health management tools, education, and community support in one accessible digital environment, helping users better understand the condition and manage it more effectively.',
    problem: `Sickle cell disorder remains a major health challenge in developing countries, where patients and caregivers struggle with scattered medical records and inconsistent health monitoring.
 Key challenges identified:
@@ -31,12 +31,16 @@ aim: "The aim of AmbleVerse is to design and develop a mobile application that a
     ],
     insights: [
       { stat: '85%', label: 'Patients forget daily tracking', color: '#800020' },
-      { stat: '90%', label: 'Want digital medical IDs', color: '#9B5CFF' }
+      { stat: '90%', label: 'Want digital medical IDs', color: '#9B5CFF' },
+      { stat: '75%', label: 'Caregivers struggle with monitoring', color: '#10B981'},
     ],
     personas: [
-      { name: 'Amara', age: '22', role: 'Student', goal: 'Track triggers', pain: 'Forgetful' }
+      { name: 'Amara', age: '22', role: 'Student', goal: 'Track triggers', pain: 'Forgetful' },
+      { name: 'David', age: '35', role: 'Guardian', goal: 'Monitor symptoms', pain: 'Lack of info'},
+      { name: 'Grace', age: '40', role: 'Caregiver', goal: 'Support warriors', pain: 'Disconnected community'},
+
     ],
-    userFlow: ['Dashboard', 'Log Crisis', 'Medical ID'],
+    userFlow: ['Signup/Signin','Dashboard', 'Log Crisis', 'Medical ID'],
     screens: [sicklecellimg, sicklecellimg],
     outcomes: [
       { metric: '30%', label: 'Crises reduction' }
@@ -51,6 +55,9 @@ aim: "The aim of AmbleVerse is to design and develop a mobile application that a
     overview: { role: 'Lead UI/UX Designer', duration: '4 months', platform: 'iOS & Android', year: '2024' },
     description: 'WasteGrid is a mobile application designed to help citizens manage waste responsibly.',
     problem: 'Inefficient collection systems and low public awareness lead to poor waste management.',
+    aim: 'To design a user-friendly mobile app that encourages responsible waste disposal and connects citizens with local waste management services.',
+    objectives: [
+      'Create an intuitive interface for waste sorting and scheduling.'],
     insights: [
       { stat: '73%', label: 'Find apps complex', color: '#10B981' },
       { stat: '68%', label: 'Want rewards', color: '#9B5CFF' }
@@ -73,6 +80,9 @@ aim: "The aim of AmbleVerse is to design and develop a mobile application that a
     overview: { role: 'Lead UI/UX Designer', duration: '4 months', platform: 'IoT & Mobile', year: '2024' },
     description: 'TidalWave is a smart IoT-powered waste management system.',
     problem: 'Lack of real-time communication between citizens and waste authorities.',
+    aim: 'To design an integrated mobile and IoT solution that connects citizens with waste management authorities for efficient waste collection.',
+    objectives: [
+      'Design a mobile app for real-time waste bin monitoring and pickup requests.'],
     insights: [
       { stat: '92%', label: 'Need bin notifications', color: '#00A8FF' },
       { stat: '70%', label: 'Cleanliness boost', color: '#9B5CFF' }

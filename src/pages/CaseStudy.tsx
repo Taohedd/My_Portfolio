@@ -1,28 +1,37 @@
 import { ArrowLeft, Calendar, Users, Target, TrendingUp, CheckCircle2 } from 'lucide-react';
+import { useParams, useNavigate } from 'react-router-dom'; // Added for routing
 import { projectdata } from '../projectdata'; 
 import homeImg from '../assets/projects/homepage.jpg';
 
-interface CaseStudyProps {
-  projectId?: string;
-  // FIX: Added optional id to match your handleNavigate function in App.tsx
-  onNavigate: (page: string, id?: string) => void; 
-}
+export function CaseStudy() {
+  // 1. Get the projectId from the URL (e.g., /projects/sickle-cell)
+  const { projectId } = useParams<{ projectId: string }>();
+  const navigate = useNavigate();
 
-export function CaseStudy({ projectId, onNavigate }: CaseStudyProps) {
-  // LOOKUP LOGIC: Ensure we have a valid project object
-  const project = projectId && projectdata[projectId as keyof typeof projectdata] 
-    ? projectdata[projectId as keyof typeof projectdata] 
-    : projectdata['waste-management'];
+  // 2. Lookup the project data based on the URL parameter
+  const project = projectId ? projectdata[projectId as keyof typeof projectdata] : null;
 
-  // Safety return if data is somehow still missing
-  if (!project) return <div className="pt-40 text-center text-white">Project not found.</div>;
+  // 3. Safety check: If project ID is invalid, show an error state
+  if (!project) {
+    return (
+      <div className="min-h-screen pt-40 text-center text-white">
+        <h2 className="text-2xl mb-4">Project not found.</h2>
+        <button 
+          onClick={() => navigate('/projects')}
+          className="text-[#00A8FF] hover:underline"
+        >
+          Back to Projects
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen pt-8 px-4 sm:px-6 lg:px-8 pb-24">
       <div className="max-w-5xl mx-auto">
-        {/* Back Button */}
+        {/* Back Button - Now uses navigate() */}
         <button
-          onClick={() => onNavigate('projects')}
+          onClick={() => navigate('/projects')}
           className="inline-flex items-center gap-2 text-gray-400 hover:text-[#00A8FF] transition-colors mb-8 group"
         >
           <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
@@ -50,7 +59,7 @@ export function CaseStudy({ projectId, onNavigate }: CaseStudyProps) {
           </div>
         </div>
 
-        {/* Overview */}
+        {/* Project Overview */}
         <section className="mb-16">
           <h2 className="text-xl sm:text-3xl md:text-4xl mb-6 sm:mb-8 font-bold">
             Project <span className="gradient-text">Overview</span>
@@ -110,7 +119,7 @@ export function CaseStudy({ projectId, onNavigate }: CaseStudyProps) {
                 Key <span className="gradient-text">Objectives</span>
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {project?.objectives.map((obj: string, index: number) => (
+                {project.objectives?.map((obj: string, index: number) => (
                   <div key={index} className="glass rounded-xl p-4 flex items-start gap-3 border border-white/5">
                     <div 
                       className="mt-1 w-2 h-2 rounded-full flex-shrink-0" 
@@ -123,7 +132,7 @@ export function CaseStudy({ projectId, onNavigate }: CaseStudyProps) {
             </div>
           </div>
         </section>
-<br />
+
         {/* Research Insights */}
         {project.insights && project.insights.length > 0 && (
           <section className="mb-16">
@@ -144,111 +153,119 @@ export function CaseStudy({ projectId, onNavigate }: CaseStudyProps) {
         )}
 
         {/* User Personas */}
-        <section className="mb-16">
-          <h2 className="text-3xl md:text-4xl mb-8 font-bold">
-            User <span className="gradient-text">Personas</span>
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {project.personas.map((persona: any, index: number) => (
-              <div key={index} className="glass-strong rounded-2xl p-8 border border-white/5">
-                <div className="flex items-start gap-4 mb-6">
-                  <div 
-                    className="w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold text-white"
-                    style={{ background: `linear-gradient(to bottom right, ${project.themeColor}, #4F46E5)` }}
-                  >
-                    {persona.name[0]}
+        {project.personas && (
+          <section className="mb-16">
+            <h2 className="text-3xl md:text-4xl mb-8 font-bold">
+              User <span className="gradient-text">Personas</span>
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {project.personas.map((persona: any, index: number) => (
+                <div key={index} className="glass-strong rounded-2xl p-8 border border-white/5">
+                  <div className="flex items-start gap-4 mb-6">
+                    <div 
+                      className="w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold text-white flex-shrink-0"
+                      style={{ background: `linear-gradient(to bottom right, ${project.themeColor}, #4F46E5)` }}
+                    >
+                      {persona.name[0]}
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold mb-1">{persona.name}</h3>
+                      <p className="text-sm text-gray-400">Age: {persona.age}</p>
+                      <p className="text-sm font-semibold tracking-wide" style={{ color: project.themeColor }}>{persona.role}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-xl font-bold mb-1">{persona.name}</h3>
-                    <p className="text-sm text-gray-400">Age: {persona.age}</p>
-                    <p className="text-sm font-semibold tracking-wide" style={{ color: project.themeColor }}>{persona.role}</p>
+                  <div className="space-y-4">
+                    <div>
+                      <div className="text-xs uppercase tracking-widest text-gray-500 mb-1 font-bold">Goal</div>
+                      <div className="text-gray-200">{persona.goal}</div>
+                    </div>
+                    <div>
+                      <div className="text-xs uppercase tracking-widest text-gray-500 mb-1 font-bold">Pain Point</div>
+                      <div className="text-gray-200">{persona.pain}</div>
+                    </div>
                   </div>
                 </div>
-                <div className="space-y-4">
-                  <div>
-                    <div className="text-xs uppercase tracking-widest text-gray-500 mb-1 font-bold">Goal</div>
-                    <div className="text-gray-200">{persona.goal}</div>
-                  </div>
-                  <div>
-                    <div className="text-xs uppercase tracking-widest text-gray-500 mb-1 font-bold">Pain Point</div>
-                    <div className="text-gray-200">{persona.pain}</div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* User Flow */}
-        <section className="mb-16">
-          <h2 className="text-3xl md:text-4xl mb-8 font-bold">
-            User <span className="gradient-text">Flow</span>
-          </h2>
-          <div className="glass-strong rounded-2xl p-8 overflow-x-auto">
-            <div className="flex items-center gap-6 min-w-max pb-4">
-              {project.userFlow.map((step: string, index: number) => (
-                <div key={index} className="flex items-center gap-4">
-                  <div className="glass rounded-xl px-4 py-4 text-center min-w-[140px] border border-white/5">
-                    <div 
-                        className="w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 font-bold shadow-lg"
-                        style={{ backgroundColor: project.themeColor }}
-                    >
-                      {index + 1}
+        {project.userFlow && (
+          <section className="mb-16">
+            <h2 className="text-3xl md:text-4xl mb-8 font-bold">
+              User <span className="gradient-text">Flow</span>
+            </h2>
+            <div className="glass-strong rounded-2xl p-8 overflow-x-auto">
+              <div className="flex items-center gap-6 min-w-max pb-4">
+                {project.userFlow.map((step: string, index: number) => (
+                  <div key={index} className="flex items-center gap-4">
+                    <div className="glass rounded-xl px-4 py-4 text-center min-w-[140px] border border-white/5">
+                      <div 
+                          className="w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 font-bold shadow-lg"
+                          style={{ backgroundColor: project.themeColor }}
+                      >
+                        {index + 1}
+                      </div>
+                      <div className="text-sm font-medium text-gray-300">{step}</div>
                     </div>
-                    <div className="text-sm font-medium text-gray-300">{step}</div>
+                    {index < project.userFlow.length - 1 && (
+                      <div className="w-12 h-px bg-gradient-to-r from-gray-600 to-transparent"></div>
+                    )}
                   </div>
-                  {index < project.userFlow.length - 1 && (
-                    <div className="w-12 h-px bg-gradient-to-r from-gray-600 to-transparent"></div>
-                  )}
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         {/* Final Designs */}
-        <section className="mb-16">
-          <h2 className="text-3xl md:text-4xl mb-8 font-bold">
-            Final <span className="gradient-text">UI Screens</span>
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-            {project.screens.map((screen: string, index: number) => (
-              <div key={index} className="glass-strong rounded-3xl overflow-hidden hover-glow transition-transform duration-500">
-                <img
-                  src={screen}
-                  alt={`${project.title} screen ${index + 1}`}
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Outcomes */}
-        <section className="mb-16">
-          <h2 className="text-3xl md:text-4xl mb-8 font-bold">
-            Outcomes & <span className="gradient-text">Impact</span>
-          </h2>
-          <div className="glass-strong rounded-2xl p-8 border border-white/5">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-              {project.outcomes.map((outcome: any, index: number) => (
-                <div key={index} className="flex items-start gap-4">
-                  <CheckCircle2 style={{ color: project.themeColor }} className="mt-1 flex-shrink-0" size={24} />
-                  <div>
-                    <div className="text-2xl font-bold gradient-text mb-1">{outcome.metric}</div>
-                    <div className="text-sm text-gray-400 leading-relaxed">{outcome.label}</div>
-                  </div>
+        {project.screens && (
+          <section className="mb-16">
+            <h2 className="text-3xl md:text-4xl mb-8 font-bold">
+              Final <span className="gradient-text">UI Screens</span>
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+              {project.screens.map((screen: string, index: number) => (
+                <div key={index} className="glass-strong rounded-3xl overflow-hidden hover-glow transition-transform duration-500">
+                  <img
+                    src={screen}
+                    alt={`${project.title} screen ${index + 1}`}
+                    className="w-full h-auto object-cover"
+                  />
                 </div>
               ))}
             </div>
-            <div className="border-t border-white/10 pt-8 mt-4">
-               <h4 className="text-xs uppercase tracking-[0.2em] text-gray-500 mb-4 font-bold">Conclusion</h4>
-               <p className="text-gray-300 leading-relaxed italic text-lg">
-                "{project.conclusion}"
-              </p>
+          </section>
+        )}
+
+        {/* Outcomes */}
+        {project.outcomes && (
+          <section className="mb-16">
+            <h2 className="text-3xl md:text-4xl mb-8 font-bold">
+              Outcomes & <span className="gradient-text">Impact</span>
+            </h2>
+            <div className="glass-strong rounded-2xl p-8 border border-white/5">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                {project.outcomes.map((outcome: any, index: number) => (
+                  <div key={index} className="flex items-start gap-4">
+                    <CheckCircle2 style={{ color: project.themeColor }} className="mt-1 flex-shrink-0" size={24} />
+                    <div>
+                      <div className="text-2xl font-bold gradient-text mb-1">{outcome.metric}</div>
+                      <div className="text-sm text-gray-400 leading-relaxed">{outcome.label}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="border-t border-white/10 pt-8 mt-4">
+                 <h4 className="text-xs uppercase tracking-[0.2em] text-gray-500 mb-4 font-bold">Conclusion</h4>
+                 <p className="text-gray-300 leading-relaxed italic text-lg">
+                   "{project.conclusion}"
+                </p>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
       </div>
     </div>
   );
