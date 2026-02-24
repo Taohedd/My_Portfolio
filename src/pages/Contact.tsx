@@ -1,4 +1,4 @@
-import { Mail, MapPin, Phone, Send, Linkedin, Dribbble, Github, Twitter, Loader2 } from 'lucide-react';
+import { Mail, MapPin, Phone, Send, Linkedin, Dribbble, Github, Twitter, Loader2, MessageSquare } from 'lucide-react';
 import { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 
@@ -51,10 +51,11 @@ export function Contact() {
   ];
 
   const socialLinks = [
-    { icon: Linkedin, href: '#', label: 'LinkedIn', color: '#00A8FF' },
-    { icon: Dribbble, href: '#', label: 'Dribbble', color: '#9B5CFF' },
-    { icon: Github, href: '#', label: 'Github', color: '#00A8FF' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/rahamon-taoheed/', label: 'LinkedIn', color: '#00A8FF' },
+    { icon: Dribbble, href: 'https://dribbble.com/Raayta', label: 'Dribbble', color: '#9B5CFF' },
+    { icon: Github, href: 'https://github.com/Taohedd', label: 'Github', color: '#00A8FF' },
     { icon: Twitter, href: '#', label: 'Twitter', color: '#9B5CFF' },
+    { icon: MessageSquare,href: 'https://wa.me/qr/JSNSXBFYKEUDD1', label: 'Whatsapp', color: '#00A8FF' },
   ];
 
   return (
