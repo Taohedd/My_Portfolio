@@ -14,7 +14,7 @@ export function CaseStudy() {
   // 3. Safety check: If project ID is invalid, show an error state
   if (!project) {
     return (
-      <div className="min-h-screen pt-40 text-center text-white">
+      <div className="min-h-screen pt-4 text-center text-white">
         <h2 className="text-2xl mb-4">Project not found.</h2>
         <button 
           onClick={() => navigate('/projects')}
@@ -39,14 +39,14 @@ export function CaseStudy() {
         </button>
 
         {/* Hero Header */}
-        <div className="glass-strong rounded-3xl overflow-hidden mb-16">
+        <div className="glass-strong rounded-3xl overflow-hidden mb-8">
           <div className="relative h-[260px] sm:h-80 md:h-96">
             <img
               src={project.image || homeImg}
               alt={project.title}
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0F] via-[#0A0A0F]/70 to-transparent flex items-end">
+            <div className="absolute inset-0 bg-linear-to-t from-[#0A0A0F] via-[#0A0A0F]/70 to-transparent flex items-end">
               <div className="p-8 md:p-12 w-full">
                 <h1 className="text-xl sm:text-3xl md:text-4xl mb-3 sm:mb-4 font-bold">
                   {project.title}
@@ -60,11 +60,11 @@ export function CaseStudy() {
         </div>
 
         {/* Project Overview */}
-        <section className="mb-16">
-          <h2 className="text-xl sm:text-3xl md:text-4xl mb-6 sm:mb-8 font-bold">
+        <section className="mb-8">
+          <h2 className="text-xl sm:text-3xl md:text-4xl mb-6 sm:mb-4 font-bold">
             Project <span className="gradient-text">Overview</span>
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-4">
             {[
               { label: 'Role', value: project.overview.role, icon: Users },
               { label: 'Duration', value: project.overview.duration, icon: Calendar },
@@ -89,8 +89,8 @@ export function CaseStudy() {
         </section>
 
         {/* Problem Statement */}
-        <section className="mb-16">
-          <h2 className="text-3xl md:text-4xl mb-8 font-bold">
+        <section className="mb-8">
+          <h2 className="text-3xl md:text-4xl mb-4 font-bold">
             The <span className="gradient-text">Problem</span>
           </h2>
           <div className="glass-strong rounded-2xl p-8 border-l-4" style={{ borderColor: project.themeColor }}>
@@ -101,10 +101,10 @@ export function CaseStudy() {
         </section>
 
         {/* Aim & Objectives */}
-        <section className="mb-16">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <section className="mb-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <div className="lg:col-span-1">
-              <h2 className="text-3xl md:text-4xl mb-6 font-bold">
+              <h2 className="text-3xl md:text-4xl mb-4 font-bold">
                 Project <span className="gradient-text">Aim</span>
               </h2>
               <div className="glass-strong rounded-2xl p-8 border-t-4 h-full" style={{ borderColor: project.themeColor }}>
@@ -113,7 +113,7 @@ export function CaseStudy() {
                 </p>
               </div>
             </div>
-
+<br />
             <div className="lg:col-span-2">
               <h2 className="text-3xl md:text-4xl mb-6 font-bold">
                 Key <span className="gradient-text">Objectives</span>
@@ -135,7 +135,7 @@ export function CaseStudy() {
 
         {/* Research Insights */}
         {project.insights && project.insights.length > 0 && (
-          <section className="mb-16">
+          <section className="mb-4">
             <h2 className="text-3xl md:text-4xl mb-8 font-bold">
               Research <span className="gradient-text">Insights</span>
             </h2>

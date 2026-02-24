@@ -52,7 +52,7 @@ export function Home() {
   const tools = [
     { name: 'Figma', icon: Figma, color: '#00A8FF' },
     { name: 'Illustrator', icon: Palette, color: '#9B5CFF' },
-    { name: 'Photoshop', icon: Layout, color: '#00A8FF' },
+    { name: 'Framer', icon: Layout, color: '#00A8FF' },
   ];
 
   return (
@@ -81,7 +81,7 @@ export function Home() {
               </div>
 
               <h1 className="text-3xl sm:text-4xl md:text-5xl mb-6 leading-tight">
-                Hi, I&apos;m <span className="gradient-text">Rahamon Taoheed</span> UI/UX
+                Hi, I&apos;m <span className="linear-text">Rahamon Taoheed,</span>a UI/UX
                 Designer Building Intelligent & Beautiful Digital Experiences.
               </h1>
 
@@ -123,13 +123,13 @@ export function Home() {
                       src={homepic}
                       className="w-full h-full object-cover opacity-100"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0F] to-transparent" />
+                    <div className="absolute inset-0 bg-linear-to-t from-[#0A0A0F] to-transparent" />
                   </div>
                 </div>
 
                 {/* Floating cards desktop only */}
                 <div className="hidden md:block absolute -top-6 -right-6 glass rounded-2xl p-4 float">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#00A8FF] to-[#9B5CFF] flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-xl bg-linear-to-br from-[#00A8FF] to-[#9B5CFF] flex items-center justify-center">
                     <Sparkles size={24} className="text-white" />
                   </div>
                 </div>
@@ -139,7 +139,7 @@ export function Home() {
                   style={{ animationDelay: '1s' }}
                 >
                   <div className="text-sm text-gray-400 mb-1">Experience</div>
-                  <div className="text-2xl gradient-text">4+ Years</div>
+                  <div className="text-2xl linear-text">4+ Years</div>
                 </div>
               </div>
             </div>
@@ -148,12 +148,12 @@ export function Home() {
       </section>
 
       {/* ================= PROJECTS ================= */}
-      <section className="px-4 sm:px-6 lg:px-8 py-20">
+      <section className="px-4 sm:px-6 lg:px-4 py-20">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-12 gap-6">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 gap-6">
             <div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl mb-4">
-                Featured <span className="gradient-text">Projects</span>
+                Featured <span className="linear-text">Projects</span>
               </h2>
               <p className="text-gray-400">
                 A selection of my recent work
@@ -187,7 +187,7 @@ export function Home() {
       <section className="px-2 sm:px-6 lg:px-8 py-12 sm:py-20">
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl md:text-5xl mb-4">
-            My <span className="gradient-text">Design Arsenal</span>
+            My <span className="linear-text">Design Arsenal</span>
           </h2>
           <p className="text-gray-400 mb-12">
             Tools I use to bring ideas to life
@@ -199,7 +199,7 @@ export function Home() {
                 key={name}
                 className="glass-strong rounded-xl p-4 sm:p-6 hover-glow text-center flex flex-col items-center"
         >
-                <div className="w-12 h-12 sm:w-14 sm:h-14 mb-2 sm:mb-4 rounded-2xl bg-gradient-to-br from-[#00A8FF]/20 to-[#9B5CFF]/20 flex items-center justify-center">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 mb-2 sm:mb-4 rounded-2xl bg-linear-to-br from-[#00A8FF]/20 to-[#9B5CFF]/20 flex items-center justify-center">
                   <Icon size={20} style={{ color }} />
                 </div>
                 <h3 className="text-sm sm:text-base text-white">{name}</h3>
@@ -215,7 +215,7 @@ export function Home() {
           <div className="glass-strong rounded-3xl p-8 sm:p-12 md:p-16 neon-border-purple">
             <h2 className="text-3xl sm:text-4xl md:text-5xl mb-6">
               Let&apos;s Create Something{' '}
-              <span className="gradient-text">Extraordinary</span>
+              <span className="linear-text">Extraordinary</span>
             </h2>
             <p className="text-lg sm:text-xl text-gray-400 mb-8">
               Have a project in mind? Let&apos;s build it together.

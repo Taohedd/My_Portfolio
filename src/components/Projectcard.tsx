@@ -60,7 +60,7 @@ export function ProjectCard({
       </div>
 
       {/* Corner accent */}
-      <div className="absolute top-4 right-4 w-12 h-12 rounded-full bg-gradient-to-br from-[#00A8FF]/20 to-[#9B5CFF]/20 opacity-0 group-hover:opacity-100 transition-opacity blur-xl"></div>
+      <div className="absolute top-4 right-4 w-12 h-12 rounded-full bg-linear-to-br from-[#00A8FF]/20 to-[#9B5CFF]/20 opacity-0 group-hover:opacity-100 transition-opacity blur-xl"></div>
     </div>
   );
 }
