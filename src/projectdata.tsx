@@ -33,7 +33,7 @@ export interface Project {
 
 export const projectdata: Record<string, Project> = {
   'sickle-cell': {
-    title: 'Sickle Cell Management App',
+    title: 'Ambleverse(Sickle Cell App)',
     subtitle: 'Better Care, Better Living',
     image: sicklecellimg,
     themeColor: '#800020',
@@ -115,6 +115,31 @@ There is a critical need for a mobile solution that integrates tracking, reminde
   },
   'tidal-wave': {
     title: 'Tidal Wave',
+    subtitle: 'Smart IoT-Powered Waste Management',
+    image: tidalwave,
+    themeColor: '#00A8FF',
+    overview: { role: 'Lead UI/UX Designer', duration: '4 months', platform: 'IoT & Mobile', year: '2024' },
+    description: 'TidalWave is a smart IoT-powered waste management system.',
+    problem: 'Lack of real-time communication between citizens and waste authorities.',
+    aim: 'To design an integrated mobile and IoT solution that connects citizens with waste management authorities for efficient waste collection.',
+    objectives: [
+      'Design a mobile app for real-time waste bin monitoring and pickup requests.'],
+    insights: [
+      { stat: '92%', label: 'Need bin notifications', color: '#00A8FF' },
+      { stat: '70%', label: 'Cleanliness boost', color: '#9B5CFF' }
+    ],
+    personas: [
+      { name: 'Michael', age: '42', role: 'Business Owner', goal: 'Monitor pickups', pain: 'Overflowing bins' }
+    ],
+    userFlow: ['Bin Status', 'Request Pickup', 'Feedback'],
+    screens: [tidalwave, tidalwave],
+    outcomes: [
+      { metric: '50%', label: 'Faster collection' }
+    ],
+    conclusion: 'IoT integration modernized the urban waste infrastructure.'
+  },
+  'Faculty of Science': {
+    title: 'Faculty of Science',
     subtitle: 'Smart IoT-Powered Waste Management',
     image: tidalwave,
     themeColor: '#00A8FF',

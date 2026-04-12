@@ -17,7 +17,7 @@ export function Projects() {
   const [searchQuery, setSearchQuery] = useState(''); // Added search state
   const navigate = useNavigate();
 
-  const categories = ['All', 'Mobile', 'Web', 'Dashboard', 'E-Commerce'];
+  const categories = ['All', 'Mobile', 'Web', 'Dashboard', 'E-Commerce','Education'];
 
   const projects = [
     {
@@ -64,12 +64,12 @@ export function Projects() {
       category: 'mobile',
     },
     {
-      id: 'project-management',
-      title: 'Project Management Tool',
+      id: 'Faculty Of Science',
+      title: 'Faculty Website',
       description: 'Collaborative project management platform with kanban boards and team analytics.',
       image: 'https://images.unsplash.com/photo-1750056393300-102f7c4b8bc2?auto=format&fit=crop&w=1080&q=80',
-      tags: ['Web App', 'Dashboard', 'Collaboration'],
-      category: 'dashboard',
+      tags: ['Web', 'Dashboard', 'School'],
+      category: 'Education',
     },
   ];
 

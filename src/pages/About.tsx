@@ -20,18 +20,6 @@ export function About() {
 
   const journey = [
     {
-      year: '2024 - Present',
-      title: 'Senior UI/UX Designer',
-      company: 'ZuriFlux GreenTech Ltd.',
-      description: 'Leading design initiatives for enterprise.',
-    },
-    {
-      year: '2024',
-      title: 'UI/UX Designer',
-      company: 'Crescent Vitalis.',
-      description: 'Designed mobile and web applications for Sickle Cell patients,guardians and caregivers.',
-    },
-    {
       year: '2020 - 2022',
       title: 'Junior Designer',
       company: 'Creative Agency',
@@ -62,8 +50,26 @@ export function About() {
       year: '2024 - Present',
       title: 'Higher National Diploma (HND) in Computer Science',
       company: 'The Polytechnic Ibadan',
-      description: 'Graduated with honors, specializing in digital design and human-computer interaction.',
+      description: 'Graduating with honors, specializing in digital design and human-computer interaction.',
       isEducation: true,
+    },
+    {
+      year: '2025',
+      title: 'UI/UX Designer',
+      company: 'Crescent Vitalis.',
+      description: 'Designed mobile and web applications for Sickle Cell patients,guardians and caregivers.',
+    },
+    {
+      year: '2025 - Present',
+      title: 'Senior UI/UX Designer',
+      company: 'ZuriFlux GreenTech Ltd.',
+      description: 'Leading design initiatives for enterprise.',
+    },
+    {
+      year: '2026',
+      title: 'Senior UI/UX Designer',
+      company: 'The Polytechnic Ibadan Faculty of Science.',
+      description: 'Designed a Dynamic Website for The Faculty of science (The Polytechnic, Ibadan) ',
     },
   ];
 
