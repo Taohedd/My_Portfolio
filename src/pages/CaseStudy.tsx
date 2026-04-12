@@ -1,6 +1,6 @@
 import { ArrowLeft, Calendar, Users, Target, TrendingUp, CheckCircle2 } from 'lucide-react';
 import { useParams, useNavigate } from 'react-router-dom'; // Added for routing
-import { projectdata } from '../projectdata'; 
+import { projectdata } from '../projectdata';
 import homeImg from '../assets/projects/homepage.jpg';
 
 export function CaseStudy() {
@@ -16,7 +16,7 @@ export function CaseStudy() {
     return (
       <div className="min-h-screen pt-4 text-center text-white">
         <h2 className="text-2xl mb-4">Project not found.</h2>
-        <button 
+        <button
           onClick={() => navigate('/projects')}
           className="text-[#00A8FF] hover:underline"
         >
@@ -101,42 +101,43 @@ export function CaseStudy() {
         </section>
 
         {/* Aim & Objectives */}
-<section className="mb-16"> {/* Increased bottom margin for better breathing room */}
-  <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start"> {/* Added items-start to prevent stretching */}
-    
-    {/* Aim Column */}
-    <div className="lg:col-span-1">
-      <h2 className="text-3xl md:text-4xl mb-6 font-bold">
-        Project <span className="gradient-text">Aim</span>
-      </h2>
-      {/* Changed h-full to h-fit to prevent the box from expanding invisibly */}
-      <div className="glass-strong rounded-2xl p-8 border-t-4 h-fit relative" style={{ borderColor: project.themeColor }}>
-        <p className="text-gray-300 leading-relaxed italic">
-          {project.aim}
-        </p>
-      </div>
-    </div>
+        <section className="mb-16"> {/* Increased bottom margin for better breathing room */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start"> {/* Added items-start to prevent stretching */}
 
-    {/* Objectives Column */}
-    <div className="lg:col-span-2">
-      <h2 className="text-3xl md:text-4xl mb-6 font-bold">
-        Key <span className="gradient-text">Objectives</span>
-      </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {project.objectives?.map((obj: string, index: number) => (
-          <div key={index} className="glass rounded-xl p-4 flex items-start gap-3 border border-white/5 shadow-sm">
-            <div 
-              className="mt-1.5 w-2 h-2 rounded-full flex-shrink-0" 
-              style={{ backgroundColor: project.themeColor }} 
-            />
-            <p className="text-sm text-gray-300 leading-snug">{obj}</p>
+            {/* Aim Column */}
+            <div className="lg:col-span-1">
+              <h2 className="text-3xl md:text-4xl mb-6 font-bold">
+                Project <span className="gradient-text">Aim</span>
+              </h2>
+              {/* Changed h-full to h-fit to prevent the box from expanding invisibly */}
+              <div className="glass-strong rounded-2xl p-8 border-t-4 h-fit relative" style={{ borderColor: project.themeColor }}>
+                <p className="text-gray-300 leading-relaxed italic">
+                  {project.aim}
+                </p>
+              </div>
+            </div>
+
+            {/* Objectives Column */}
+            <div className="lg:col-span-2">
+              <h2 className="text-3xl md:text-4xl mb-6 font-bold">
+                Key <span className="gradient-text">Objectives</span>
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {project.objectives?.map((obj: string, index: number) => (
+                  <div key={index} className="glass rounded-xl p-4 flex items-start gap-3 border border-white/5 shadow-sm">
+                    <div
+                      className="mt-1.5 w-2 h-2 rounded-full flex-shrink-0"
+                      style={{ backgroundColor: project.themeColor }}
+                    />
+                    <p className="text-sm text-gray-300 leading-snug">{obj}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
           </div>
-        ))}
-      </div>
-    </div>
+        </section>
 
-  </div>
-</section>
         {/* Research Insights */}
         {project.insights && project.insights.length > 0 && (
           <section className="mb-4">
@@ -144,7 +145,7 @@ export function CaseStudy() {
               Research <span className="gradient-text">Insights</span>
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {project.insights.map((insight: any, index: number) => (
+              {project.insights?.map((insight: any, index: number) => (
                 <div key={index} className="glass-strong rounded-2xl p-8 text-center hover-glow transition-all">
                   <div className="text-5xl mb-4 font-bold" style={{ color: insight.color }}>
                     {insight.stat}
@@ -163,10 +164,10 @@ export function CaseStudy() {
               User <span className="gradient-text">Personas</span>
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {project.personas.map((persona: any, index: number) => (
+              {project.personas?.map((persona: any, index: number) => (
                 <div key={index} className="glass-strong rounded-2xl p-8 border border-white/5">
                   <div className="flex items-start gap-4 mb-6">
-                    <div 
+                    <div
                       className="w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold text-white flex-shrink-0"
                       style={{ background: `linear-gradient(to bottom right, ${project.themeColor}, #4F46E5)` }}
                     >
@@ -178,7 +179,7 @@ export function CaseStudy() {
                       <p className="text-sm font-semibold tracking-wide" style={{ color: project.themeColor }}>{persona.role}</p>
                     </div>
                   </div>
-                  <div className="space-y-2">
+                  <div className="space-y-4">
                     <div>
                       <div className="text-xs uppercase tracking-widest text-gray-500 mb-1 font-bold">Goal</div>
                       <div className="text-gray-200">{persona.goal}</div>
@@ -195,31 +196,65 @@ export function CaseStudy() {
         )}
 
         {/* User Flow */}
-        {project.userFlow && (
+        {(project.userFlow || project.userFlows) && (
           <section className="mb-16">
             <h2 className="text-3xl md:text-4xl mb-8 font-bold">
               User <span className="gradient-text">Flow</span>
             </h2>
-            <div className="glass-strong rounded-2xl p-8 overflow-x-auto">
-              <div className="flex items-center gap-6 min-w-max pb-4">
-                {project.userFlow.map((step: string, index: number) => (
-                  <div key={index} className="flex items-center gap-4">
-                    <div className="glass rounded-xl px-4 py-4 text-center min-w-[140px] border border-white/5">
-                      <div 
-                          className="w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 font-bold shadow-lg"
-                          style={{ backgroundColor: project.themeColor }}
-                      >
-                        {index + 1}
-                      </div>
-                      <div className="text-sm font-medium text-gray-300">{step}</div>
+
+            {project.userFlows ? (
+              <div className="space-y-12">
+                {project.userFlows?.map((flow, flowIndex) => (
+                  <div key={flowIndex} className="space-y-6">
+                    <div className="flex items-center gap-3">
+                      <div className="w-1.5 h-6 rounded-full" style={{ backgroundColor: project.themeColor }} />
+                      <h3 className="text-xl font-bold text-gray-200">{flow.role} Flow</h3>
                     </div>
-                    {index < project.userFlow.length - 1 && (
-                      <div className="w-12 h-px bg-gradient-to-r from-gray-600 to-transparent"></div>
-                    )}
+                    <div className="glass-strong rounded-2xl p-8 overflow-x-auto">
+                      <div className="flex items-center gap-6 min-w-max pb-4">
+                        {flow.steps.map((step: string, index: number) => (
+                          <div key={index} className="flex items-center gap-4">
+                            <div className="glass rounded-xl px-4 py-4 text-center min-w-[140px] border border-white/5">
+                              <div
+                                className="w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 font-bold shadow-lg"
+                                style={{ backgroundColor: project.themeColor }}
+                              >
+                                {index + 1}
+                              </div>
+                              <div className="text-sm font-medium text-gray-300">{step}</div>
+                            </div>
+                            {index < flow.steps.length - 1 && (
+                              <div className="w-12 h-px bg-gradient-to-r from-gray-600 to-transparent"></div>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 ))}
               </div>
-            </div>
+            ) : (
+              <div className="glass-strong rounded-2xl p-8 overflow-x-auto">
+                <div className="flex items-center gap-6 min-w-max pb-4">
+                  {project.userFlow?.map((step: string, index: number) => (
+                    <div key={index} className="flex items-center gap-4">
+                      <div className="glass rounded-xl px-4 py-4 text-center min-w-[140px] border border-white/5">
+                        <div
+                          className="w-8 h-8 rounded-full text-white flex items-center justify-center mx-auto mb-3 font-bold shadow-lg"
+                          style={{ backgroundColor: project.themeColor }}
+                        >
+                          {index + 1}
+                        </div>
+                        <div className="text-sm font-medium text-gray-300">{step}</div>
+                      </div>
+                      {index < (project.userFlow?.length || 0) - 1 && (
+                        <div className="w-12 h-px bg-gradient-to-r from-gray-600 to-transparent"></div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </section>
         )}
 
@@ -229,7 +264,7 @@ export function CaseStudy() {
             <h2 className="text-3xl md:text-4xl mb-8 font-bold">
               Final <span className="gradient-text">UI Screens</span>
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
               {project.screens.map((screen: string, index: number) => (
                 <div key={index} className="glass-strong rounded-3xl overflow-hidden hover-glow transition-transform duration-500">
                   <img
@@ -262,9 +297,9 @@ export function CaseStudy() {
                 ))}
               </div>
               <div className="border-t border-white/10 pt-8 mt-4">
-                 <h4 className="text-xs uppercase tracking-[0.2em] text-gray-500 mb-4 font-bold">Conclusion</h4>
-                 <p className="text-gray-300 leading-relaxed italic text-lg">
-                   "{project.conclusion}"
+                <h4 className="text-xs uppercase tracking-[0.2em] text-gray-500 mb-4 font-bold">Conclusion</h4>
+                <p className="text-gray-300 leading-relaxed italic text-lg">
+                  "{project.conclusion}"
                 </p>
               </div>
             </div>

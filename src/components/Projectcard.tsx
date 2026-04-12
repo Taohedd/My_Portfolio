@@ -34,7 +34,7 @@ export function ProjectCard({
       </div>
 
       {/* Content */}
-      <div className="absolute bottom-0 left-0 right-0 p-8">
+      <div className="relative p-8 bg-[#0A0A0F]">
         <div className="flex flex-wrap gap-2 mb-4">
           {tags.map((tag, index) => (
             <span

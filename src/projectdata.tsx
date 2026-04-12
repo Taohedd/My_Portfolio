@@ -1,17 +1,45 @@
 import sicklecellimg from './assets/projects/Sicklecell.jpg';
 import wasteimg from './assets/projects/Wasteapp1.jpg';
 import tidalwave from './assets/projects/Tidalwave.jpg';
+import caregiver from './assets/projects/caregiver 2.jpeg';
+import role from './assets/projects/Role selection.jpeg';
+import warrior from './assets/projects/Warrior.jpeg';
+import parent from './assets/projects/parent 2.jpeg';
 
 
-export const projectdata = {
+export interface Project {
+  title: string;
+  subtitle: string;
+  image: string;
+  themeColor: string;
+  overview: {
+    role: string;
+    duration: string;
+    platform: string;
+    year: string;
+  };
+  description: string;
+  problem: string;
+  aim: string;
+  objectives: string[];
+  insights?: Array<{ stat: string; label: string; color: string }>;
+  personas?: Array<{ name: string; age: string; role: string; goal: string; pain: string }>;
+  userFlow?: string[];
+  userFlows?: Array<{ role: string; steps: string[] }>;
+  screens: string[];
+  outcomes: Array<{ metric: string; label: string }>;
+  conclusion: string;
+}
+
+export const projectdata: Record<string, Project> = {
   'sickle-cell': {
     title: 'Sickle Cell Management App',
     subtitle: 'Better Care, Better Living',
     image: sicklecellimg,
     themeColor: '#800020',
     overview: { role: 'Lead Designer', duration: '2 months', platform: 'Mobile', year: '2025' },
-    description:'AmbleVerse is a comprehensive mobile health and support platform designed to improve the daily lives of people living  with sickle cell disorder (often called warriors), as well as their guardians and caregivers. The app combines health management tools, education, and community support in one accessible digital environment, helping users better understand the condition and manage it more effectively.',
-   problem: `Sickle cell disorder remains a major health challenge in developing countries, where patients and caregivers struggle with scattered medical records and inconsistent health monitoring.
+    description: 'AmbleVerse is a comprehensive mobile health and support platform designed to improve the daily lives of people living  with sickle cell disorder (often called warriors), as well as their guardians and caregivers. The app combines health management tools, education, and community support in one accessible digital environment, helping users better understand the condition and manage it more effectively.',
+    problem: `Sickle cell disorder remains a major health challenge in developing countries, where patients and caregivers struggle with scattered medical records and inconsistent health monitoring.
 Key challenges identified:
 • Medication Adherence: Poor tracking of medication and hydration schedules.
 • Crisis Response: Delayed emergency response due to inaccessible medical history.
@@ -19,29 +47,42 @@ Key challenges identified:
 • Caregiver Burden: Difficulty for guardians to monitor symptoms effectively.
 
 There is a critical need for a mobile solution that integrates tracking, reminders, and emergency support to enhance the quality of life for "warriors" and their families.`,
-aim: "The aim of AmbleVerse is to design and develop a mobile application that assists individuals living with sickle cell disorder, their guardians, and caregivers in effectively managing health through a unified digital platform.",
-    
+    aim: "The aim of AmbleVerse is to design and develop a mobile application that assists individuals living with sickle cell disorder, their guardians, and caregivers in effectively managing health through a unified digital platform.",
+
     objectives: [
-        "Develop a mobile platform for tracking symptoms and pain episodes.",
-        "Improve treatment adherence via medication and appointment reminders.",
-        "Enable secure storage of medical records for emergency access.",
-        "Provide centralized educational resources for better awareness.",
-        "Create a support community for warriors and caregivers.",
-        "Facilitate rapid crisis response with emergency support features."
+      "Develop a mobile platform for tracking symptoms and pain episodes.",
+      "Improve treatment adherence via medication and appointment reminders.",
+      "Enable secure storage of medical records for emergency access.",
+      "Provide centralized educational resources for better awareness.",
+      "Create a support community for warriors and caregivers.",
+      "Facilitate rapid crisis response with emergency support features."
     ],
     insights: [
       { stat: '85%', label: 'Patients forget daily tracking', color: '#800020' },
       { stat: '90%', label: 'Want digital medical IDs', color: '#9B5CFF' },
-      { stat: '75%', label: 'Caregivers struggle with monitoring', color: '#10B981'},
+      { stat: '75%', label: 'Caregivers struggle with monitoring', color: '#10B981' },
     ],
     personas: [
       { name: 'Amara', age: '22', role: 'Student', goal: 'Track triggers', pain: 'Forgetful' },
-      { name: 'David', age: '35', role: 'Guardian', goal: 'Monitor symptoms', pain: 'Lack of info'},
-      { name: 'Grace', age: '40', role: 'Caregiver', goal: 'Support warriors', pain: 'Disconnected community'},
+      { name: 'David', age: '35', role: 'Guardian', goal: 'Monitor symptoms', pain: 'Lack of info' },
+      { name: 'Grace', age: '40', role: 'Caregiver', goal: 'Support warriors', pain: 'Disconnected community' },
 
     ],
-    userFlow: ['Signup/Signin','Dashboard', 'Log Crisis', 'Medical ID'],
-    screens: [sicklecellimg, sicklecellimg],
+    userFlows: [
+      { 
+        role: 'Warrior', 
+        steps: ['Splash Screen', 'Role Selection', 'Signup/Signin', 'Dashboard', 'Log Crisis', 'Medical ID'] 
+      },
+      { 
+        role: 'Parent', 
+        steps: ['Splash Screen', 'Role Selection', 'Signup/Signin', 'Dashboard', 'Monitor Warrior', 'Medication Reminders'] 
+      },
+      { 
+        role: 'Caregiver', 
+        steps: ['Splash Screen', 'Role Selection', 'Signup/Signin', 'Dashboard', 'Community Support', 'Resource Library'] 
+      }
+    ],
+    screens: [sicklecellimg, role,warrior,parent,caregiver],
     outcomes: [
       { metric: '30%', label: 'Crises reduction' }
     ],
