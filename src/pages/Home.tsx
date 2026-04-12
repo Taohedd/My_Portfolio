@@ -81,7 +81,7 @@ export function Home() {
               </div>
 
               <h1 className="text-3xl sm:text-4xl md:text-5xl mb-6 leading-tight">
-                Hi, I&apos;m <span className="linear-text">Rahamon Taoheed,</span>a UI/UX
+                Hi, I'm <span className="linear-text">Rahamon Taoheed,</span>a UI/UX
                 Designer Building Intelligent & Beautiful Digital Experiences.
               </h1>
 
@@ -214,11 +214,11 @@ export function Home() {
         <div className="max-w-4xl mx-auto text-center">
           <div className="glass-strong rounded-3xl p-8 sm:p-12 md:p-16 neon-border-purple">
             <h2 className="text-3xl sm:text-4xl md:text-5xl mb-6">
-              Let&apos;s Create Something{' '}
+              Let's Create Something{' '}
               <span className="linear-text">Extraordinary</span>
             </h2>
             <p className="text-lg sm:text-xl text-gray-400 mb-8">
-              Have a project in mind? Let&apos;s build it together.
+              Have a project in mind? Let's build it together.
             </p>
             <button
               onClick={() => navigate('/contact')}

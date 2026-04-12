@@ -1,4 +1,4 @@
-import { Mail, MapPin, Phone, Send, Linkedin, Dribbble, Github, Twitter, Loader2, MessageSquare } from 'lucide-react';
+import { Mail, MapPin, Phone, Send, Linkedin, Dribbble, Github, Twitter, Loader2, MessageSquare, InstagramIcon } from 'lucide-react';
 import { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 
@@ -56,6 +56,8 @@ export function Contact() {
     { icon: Github, href: 'https://github.com/Taohedd', label: 'Github', color: '#00A8FF' },
     { icon: Twitter, href: '#', label: 'Twitter', color: '#9B5CFF' },
     { icon: MessageSquare,href: 'https://wa.me/qr/JSNSXBFYKEUDD1', label: 'Whatsapp', color: '#00A8FF' },
+    { icon: InstagramIcon,href: 'https://www.instagram.com/c_hampstitches?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==', label: 'Instagram', color: '#00A8FF' },
+
   ];
 
   return (

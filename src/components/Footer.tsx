@@ -2,10 +2,10 @@ import { Linkedin, Dribbble, Github, Mail, Heart } from 'lucide-react';
 
 export function Footer() {
   const socialLinks = [
-    { icon: Linkedin, href: '#', label: 'LinkedIn', color: '#00A8FF' },
-    { icon: Dribbble, href: '#', label: 'Dribbble', color: '#9B5CFF' },
-    { icon: Github, href: '#', label: 'Github', color: '#00A8FF' },
-    { icon: Mail, href: '#', label: 'Email', color: '#9B5CFF' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/rahamon-taoheed/', label: 'LinkedIn', color: '#00A8FF' },
+    { icon: Dribbble, href: 'https://dribbble.com/Raayta', label: 'Dribbble', color: '#9B5CFF' },
+    { icon: Github, href: 'https://github.com/Taohedd', label: 'Github', color: '#00A8FF' },
+    { icon: Mail, href: 'mailto:taoheedrahamon4@gmail.com', label: 'Email', color: '#9B5CFF' },
   ];
 
   return (
@@ -28,10 +28,10 @@ export function Footer() {
           <div>
             <h4 className="text-lg mb-3 sm:mb-4 text-white">Quick Links</h4>
             <div className="flex flex-col gap-2 sm:gap-3 text-sm sm:text-base">
-              <a href="#" className="text-gray-400 hover:text-[#00A8FF] transition-colors">Projects</a>
-              <a href="#" className="text-gray-400 hover:text-[#00A8FF] transition-colors">About Me</a>
-              <a href="#" className="text-gray-400 hover:text-[#00A8FF] transition-colors">Contact</a>
-              <a href="#" className="text-gray-400 hover:text-[#00A8FF] transition-colors">Resume</a>
+              <a href="/Home" className="text-gray-400 hover:text-[#00A8FF] transition-colors">Home</a>
+              <a href="/Projects" className="text-gray-400 hover:text-[#00A8FF] transition-colors">Projects</a>
+              <a href="/About" className="text-gray-400 hover:text-[#00A8FF] transition-colors">About Me</a>
+              <a href="/Contact" className="text-gray-400 hover:text-[#00A8FF] transition-colors">Contact</a>
             </div>
           </div>
 

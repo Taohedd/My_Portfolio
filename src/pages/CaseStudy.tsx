@@ -101,38 +101,42 @@ export function CaseStudy() {
         </section>
 
         {/* Aim & Objectives */}
-        <section className="mb-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            <div className="lg:col-span-1">
-              <h2 className="text-3xl md:text-4xl mb-4 font-bold">
-                Project <span className="gradient-text">Aim</span>
-              </h2>
-              <div className="glass-strong rounded-2xl p-8 border-t-4 h-full" style={{ borderColor: project.themeColor }}>
-                <p className="text-gray-300 leading-relaxed italic">
-                  {project.aim}
-                </p>
-              </div>
-            </div>
-<br />
-            <div className="lg:col-span-2">
-              <h2 className="text-3xl md:text-4xl mb-6 font-bold">
-                Key <span className="gradient-text">Objectives</span>
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {project.objectives?.map((obj: string, index: number) => (
-                  <div key={index} className="glass rounded-xl p-4 flex items-start gap-3 border border-white/5">
-                    <div 
-                      className="mt-1 w-2 h-2 rounded-full flex-shrink-0" 
-                      style={{ backgroundColor: project.themeColor }} 
-                    />
-                    <p className="text-sm text-gray-300">{obj}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
+<section className="mb-16"> {/* Increased bottom margin for better breathing room */}
+  <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start"> {/* Added items-start to prevent stretching */}
+    
+    {/* Aim Column */}
+    <div className="lg:col-span-1">
+      <h2 className="text-3xl md:text-4xl mb-6 font-bold">
+        Project <span className="gradient-text">Aim</span>
+      </h2>
+      {/* Changed h-full to h-fit to prevent the box from expanding invisibly */}
+      <div className="glass-strong rounded-2xl p-8 border-t-4 h-fit relative" style={{ borderColor: project.themeColor }}>
+        <p className="text-gray-300 leading-relaxed italic">
+          {project.aim}
+        </p>
+      </div>
+    </div>
 
+    {/* Objectives Column */}
+    <div className="lg:col-span-2">
+      <h2 className="text-3xl md:text-4xl mb-6 font-bold">
+        Key <span className="gradient-text">Objectives</span>
+      </h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {project.objectives?.map((obj: string, index: number) => (
+          <div key={index} className="glass rounded-xl p-4 flex items-start gap-3 border border-white/5 shadow-sm">
+            <div 
+              className="mt-1.5 w-2 h-2 rounded-full flex-shrink-0" 
+              style={{ backgroundColor: project.themeColor }} 
+            />
+            <p className="text-sm text-gray-300 leading-snug">{obj}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>
         {/* Research Insights */}
         {project.insights && project.insights.length > 0 && (
           <section className="mb-4">
@@ -174,7 +178,7 @@ export function CaseStudy() {
                       <p className="text-sm font-semibold tracking-wide" style={{ color: project.themeColor }}>{persona.role}</p>
                     </div>
                   </div>
-                  <div className="space-y-4">
+                  <div className="space-y-2">
                     <div>
                       <div className="text-xs uppercase tracking-widest text-gray-500 mb-1 font-bold">Goal</div>
                       <div className="text-gray-200">{persona.goal}</div>
