@@ -3,6 +3,14 @@ import PageWrapper from '../common/page-wrapper';
 import homepic from '../assets/projects/homepic.jpeg';
 import { useNavigate } from 'react-router-dom';
 
+// Gallery Images
+import sicklecell from '../assets/projects/Sicklecell.jpg';
+import tidalwave from '../assets/projects/Tidalwave.jpg';
+import warrior from '../assets/projects/Warrior.jpeg';
+import wasteapp from '../assets/projects/Wasteapp1.jpg';
+import giitc from '../assets/projects/giitc.jpg';
+import homepage from '../assets/projects/homepage.jpg';
+
 interface AboutProps {
   onNavigate: (page: string) => void;
 }
@@ -80,6 +88,39 @@ export function About() {
     'Micro-interactions', 'A/B Testing', 'Figma Expert',
   ];
 
+  const galleryItems = [
+    {
+      image: sicklecell,
+      title: 'Sickle Cell Awareness',
+      description: 'A mobile solution designed for patients and caregivers.'
+    },
+    {
+      image: tidalwave,
+      title: 'Tidal Wave Mockup',
+      description: 'High-fidelity UI concept for a marine tech platform.'
+    },
+    {
+      image: warrior,
+      title: 'Warrior Health',
+      description: 'Empowering users through habit tracking and health data.'
+    },
+    {
+      image: wasteapp,
+      title: 'Waste Management',
+      description: 'Smart city integration for optimized waste collection.'
+    },
+    {
+      image: giitc,
+      title: 'GIITC Conference',
+      description: 'Landing page and branding for tech innovators.'
+    },
+    {
+      image: homepage,
+      title: 'Portfolio Concept',
+      description: 'Modern, dynamic interface focusing on user engagement.'
+    }
+  ];
+
   return (
     <PageWrapper>
       <div className="max-w-6xl mx-auto">
@@ -119,7 +160,7 @@ export function About() {
               </p>
             </div>
             <a 
-  href="/Rahamon Taoheed CV.pdf" // Ensure this file name matches exactly what's in your public folder
+  href="/Rahamon Taoheed Ayomide Resume.pdf" // Ensure this file name matches exactly what's in your public folder
   download="Rahamon Taoheed Resume.pdf"
   className="inline-block w-full sm:w-auto"
 >
@@ -218,6 +259,35 @@ export function About() {
                 </span>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* Gallery */}
+        <section className="mb-24">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl mb-12">
+            My <span className="gradient-text">Gallery</span>
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {galleryItems.map((item, index) => (
+              <div key={index} className="group relative glass-strong rounded-3xl overflow-hidden neon-border-blue hover-glow">
+                <div className="aspect-square overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                  <h3 className="text-xl font-bold text-white mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-300 text-sm translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
 

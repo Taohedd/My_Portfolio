@@ -65,11 +65,11 @@ export function Projects() {
     },
     {
       id: 'Faculty Of Science',
-      title: 'Faculty Website',
+      title: 'Faculty of Science Website',
       description: 'Collaborative project management platform with kanban boards and team analytics.',
       image: 'https://images.unsplash.com/photo-1750056393300-102f7c4b8bc2?auto=format&fit=crop&w=1080&q=80',
-      tags: ['Web', 'Dashboard', 'School'],
-      category: 'Education',
+      tags: ['Web', 'Dashboard', 'Education'],
+      category: 'education',
     },
   ];
 
