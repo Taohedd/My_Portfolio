@@ -106,11 +106,16 @@ export function Home() {
                     className="group-hover:translate-x-1 transition-transform"
                   />
                 </button>
-
+<a 
+  href="/Rahamon Taoheed Ayomide Resume.pdf" // Ensure this file name matches exactly what's in your public folder
+  download="Rahamon Taoheed Resume.pdf"
+  className="inline-block w-full sm:w-auto"
+>
                 <button className="px-8 py-4 rounded-full glass hover-glow text-white transition-all inline-flex items-center gap-2 justify-center">
                   <Download size={20} />
                   Download Resume
                 </button>
+                </a>
               </div>
             </div>
 
